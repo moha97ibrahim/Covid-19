@@ -22,7 +22,7 @@ import com.mohammedibrahim.covid_19.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
-
+//024cd2e9ed73490ea47ab20a25ece2a4
     private ImageView applogo,devlogo;
     private TextView Go;
 

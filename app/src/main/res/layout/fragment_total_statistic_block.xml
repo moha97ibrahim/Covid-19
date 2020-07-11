@@ -10,14 +10,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="10dp">
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp">
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_margin="20dp">
+            android:background="@drawable/card_background"
+            android:padding="10dp"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -36,14 +39,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
-                        android:gravity="center_vertical">
+                        android:gravity="center">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
                             android:text="Active Cases "
-                            android:textColor="#000000" />
+                            android:textColor="#FF0000" />
 
                     </LinearLayout>
 
@@ -58,7 +60,7 @@
                             android:id="@+id/activeCases"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="#000000"
+                            android:textColor="#FF0000"
                             android:textSize="30sp" />
 
                         <TextView
@@ -82,14 +84,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
-                        android:gravity="center_vertical">
+                        android:gravity="center">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
                             android:text="Recovered "
-                            android:textColor="#000000" />
+                            android:textColor="#08FF00" />
 
                     </LinearLayout>
 
@@ -104,7 +105,7 @@
                             android:id="@+id/recovered"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="#000000"
+                            android:textColor="#08FF00"
                             android:textSize="30sp" />
 
                         <TextView
@@ -134,12 +135,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
-                        android:gravity="center_vertical">
+                        android:gravity="center">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
                             android:text=" Deaths "
                             android:textColor="#000000" />
 
@@ -178,14 +178,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
-                        android:gravity="center_vertical">
+                        android:gravity="center">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
                             android:text="Total Cases "
-                            android:textColor="#000000" />
+                            android:textColor="#00AEFF" />
 
                     </LinearLayout>
 
@@ -200,7 +199,7 @@
                             android:id="@+id/totalCases"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="#000000"
+                            android:textColor="#00AEFF"
                             android:textSize="30sp" />
 
                         <TextView
@@ -219,7 +218,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_margin="2dp"
+
                 android:layout_gravity="end">
 
 

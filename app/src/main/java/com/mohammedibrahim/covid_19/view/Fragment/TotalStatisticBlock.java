@@ -121,7 +121,7 @@ public class TotalStatisticBlock extends Fragment {
         Log.e("demo", "" + list.getActiveCases());
 //        Toast.makeText(getActivity(), "" + list.getActiveCases(), Toast.LENGTH_LONG).show();
         editor = sharedPreferences.edit();
-        if(sharedPreferences.getString("oldLastUpdate",null).isEmpty()) {
+        if(sharedPreferences.getString("oldLastUpdate", null)==null) {
             editor.putInt("oldActiveCase", list.getActiveCases());
             editor.putInt("oldRecovered", list.getRecovered());
             editor.putInt("oldDeaths", list.getDeaths());
