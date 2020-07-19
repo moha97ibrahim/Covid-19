@@ -2,6 +2,7 @@ package com.mohammedibrahim.covid_19.view.Fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -92,7 +93,7 @@ public class TotalStatisticBlock extends Fragment {
             public void onClick(View view) {
                 rotateAnimation.start();
                 requestApiData();
-                Toast.makeText(getContext(),"Refreshed",Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Refreshed", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -121,7 +122,9 @@ public class TotalStatisticBlock extends Fragment {
         Log.e("demo", "" + list.getActiveCases());
 //        Toast.makeText(getActivity(), "" + list.getActiveCases(), Toast.LENGTH_LONG).show();
         editor = sharedPreferences.edit();
-        if(sharedPreferences.getString("oldLastUpdate", null)==null) {
+        Log.e("data", "" + sharedPreferences.getString("oldLastUpdate", null));
+        if (sharedPreferences.getString("oldLastUpdate", null) == null || !sharedPreferences.getString("oldLastUpdate", null).contains(getTime())) {
+            Log.e("data", "if");
             editor.putInt("oldActiveCase", list.getActiveCases());
             editor.putInt("oldRecovered", list.getRecovered());
             editor.putInt("oldDeaths", list.getDeaths());
@@ -166,10 +169,15 @@ public class TotalStatisticBlock extends Fragment {
         if (oldLastUpdate.contains(getTime())) {
             int count = newValue - oldValue;
             Log.e("count", "" + count);
-            if (count > 0)
+            if (count > 0) {
+                activeDiffStats.setTextColor(Color.RED);
+                recoverDiffStats.setTextColor(Color.RED);
+                deathDiffStats.setTextColor(Color.RED);
+                totalCaseDiffStats.setTextColor(Color.RED);
                 return "+" + count;
+            }
             else if (count == 0)
-                return "";
+                return "0";
             else
                 return String.valueOf(count);
 

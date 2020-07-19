@@ -51,10 +51,9 @@ public class FeedbackActivity extends AppCompatActivity {
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                progressDialog = new ProgressDialog(getApplicationContext());
+                progressDialog = new ProgressDialog(FeedbackActivity.this);
                 progressDialog.setCancelable(false);
                 progressDialog.setMessage("Sending...");
-                progressDialog.show();
                 sendData();
             }
         });
@@ -70,6 +69,7 @@ public class FeedbackActivity extends AppCompatActivity {
     }
 
     private void sendData() {
+        progressDialog.show();
         nameString = name.getText().toString().trim();
         emailString = email.getText().toString().trim();
         messageString = message.getText().toString().trim();
@@ -79,7 +79,7 @@ public class FeedbackActivity extends AppCompatActivity {
         data.put("message",messageString);
         data.put("time",getTime());
 
-        if (TextUtils.isEmpty(nameString) && TextUtils.isEmpty(messageString)) {
+        if (!TextUtils.isEmpty(nameString) && !TextUtils.isEmpty(messageString)) {
             firebaseFirestore.collection("FeedBack")
                     .document()
                     .set(data)
@@ -87,6 +87,9 @@ public class FeedbackActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(FeedbackActivity.this, "Done", Toast.LENGTH_LONG).show();
+                            name.setText("");
+                            email.setText("");
+                            message.setText("");
                             progressDialog.cancel();
                         }
                     })
@@ -98,7 +101,7 @@ public class FeedbackActivity extends AppCompatActivity {
                     });
         } else {
             Toast.makeText(FeedbackActivity.this, "Field is empty", Toast.LENGTH_LONG).show();
-
+            progressDialog.cancel();
         }
 
 
